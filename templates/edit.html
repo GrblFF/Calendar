@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
+    <h2>Редактирование события</h2>
+    <form method="POST" action="/edit/{{ event.id }}">
+        <div class="form-group">
+            <label for="date">Дата:</label>
+            <input type="date"  id="date" name="date" value="{{ event.date }}" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Заголовок</label>
+            <input type="text"  id="title" name="title" value="{{ event.title }}" maxlength="30" required>
+        </div>
+        <div class="form-group">
+            <label for="text">Сообщение</label>
+            <textarea id="text" name="text" maxlength="200" required>{{ event.text }}</textarea>
+        </div>
+        <button type="submit" class="btn">Редактировать</button>
+    </form>
+{% endblock %}

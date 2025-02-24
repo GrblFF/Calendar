@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block content %}
+    <h2>Удаление события</h2>
+    <p>Удаляем событие "{{ event.title }}" от {{ event.date }}?</p>
+    <form method="POST" action="/delete/{{ event.id }}">
+        <button type="submit" class="btn" style="background: red">Удалить</button>
+        <a href="/" class="btn" >Отменить </a>
+    </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+    <h1>Список событий</h1>
+    <hr>
+    <a href="/add" class="btn">Добавить событие</a>
+    <ul>
+        {% if events %}
+            {% for event in events %}
+                <li class="main-list">
+                    <strong>{{ event.title }}</strong> на {{ event.date }}  <br />
+                    {{ event.text }}
+                    <div class="right">
+                        <a href="/edit/{{ event.id }}" class="btn">Редактировать</a>
+                        <a href="/delete/{{ event.id }}" class="btn" style="background: red">Удалить</a>
+                    </div>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Нет добавленных событий</li>
+        {% endif %}
+    </ul>
+{% endblock %}
